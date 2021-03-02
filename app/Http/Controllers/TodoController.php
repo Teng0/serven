@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Validator;
 
 class TodoController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+}
+
     public function index()
     {
 
@@ -33,7 +37,10 @@ class TodoController extends Controller
 
     public function store(TodoCreateQequest $request){
 
-        Todo::create($request->all());
+
+        auth()->user()->todos()->create($request->all());
+
+        //Todo::create($request->all());
         return redirect()->back()->with('message','Todo Created Succesfully');
 
     }

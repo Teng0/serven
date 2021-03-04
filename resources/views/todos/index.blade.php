@@ -10,7 +10,7 @@
 
     <ul>
 
-        @foreach($todos as $todo)
+        @forelse($todos as $todo)
 
             <li class="flex justify-between my-2">
                 <div>
@@ -35,7 +35,9 @@
                         </form>
                     </div>
             </li>
-        @endforeach
+        @empty
+            <p>To Todos Avilable Create One </p>
+        @endforelse
 
     </ul>
 @endsection

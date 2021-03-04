@@ -17,8 +17,8 @@ class TodoController extends Controller
 
     public function index()
     {
-
-        return view('/todos/index')->with(["todos"=>Todo::orderBy('completed')->get()]);
+        $todos = auth()->user()->todos()->orderBy('completed')->get();
+        return view('/todos/index',compact('todos'));
     }
 
     public function create()

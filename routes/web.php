@@ -17,13 +17,17 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get("/todos",[Controllers\TodoController::class,'index'])->name('todo.index');
-Route::get("/todos/create",[Controllers\TodoController::class,'create']);
-Route::get("/todos/edit/{todo}",[Controllers\TodoController::class,'edit']);
-Route::patch("/todos/edit/{todo}",[Controllers\TodoController::class,'update'])->name('todo.update');
-Route::put("/todos/complate/{todo}",[Controllers\TodoController::class,'complate'])->name('todo.complate');
-Route::delete("/todos/incomplate/{todo}",[Controllers\TodoController::class,'incomplate'])->name('todo.incomplate');
-Route::delete("/todos/delete/{todo}",[Controllers\TodoController::class,'delete'])->name('todo.delete');
+
+
+    Route::get("/todos",[Controllers\TodoController::class,'index'])->name('todo.index');
+    Route::get("/todos/create",[Controllers\TodoController::class,'create']);
+    Route::get("/todos/edit/{todo}",[Controllers\TodoController::class,'edit']);
+    Route::patch("/todos/edit/{todo}",[Controllers\TodoController::class,'update'])->name('todo.update');
+    Route::delete("/todos/delete/{todo}",[Controllers\TodoController::class,'delete'])->name('todo.delete');
+//Route::resource('todos',Controllers\TodoController::class);
+    Route::put("/todos/complate/{todo}",[Controllers\TodoController::class,'complate'])->name('todo.complate');
+    Route::delete("/todos/incomplate/{todo}",[Controllers\TodoController::class,'incomplate'])->name('todo.incomplate');
+
 
 Route::post('/todos/create',[Controllers\TodoController::class,'store']);
 

@@ -47,4 +47,8 @@ class User extends Authenticatable
 //    public function getEmailAttribute($email){
 //        return "Email is : " .ucfirst($email);
 //    }
+
+    public function todos(){
+        return $this->hasMany(Todo::class);
+    }
 }
